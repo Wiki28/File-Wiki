@@ -14,7 +14,7 @@ from pyrogram.types import Message
 
 from config import ADMINS, LOGGER
 
-UPSTREAM_REPO = "https://github.com/mrismanaziz/File-Sharing-Man"
+UPSTREAM_REPO = "https://github.com/Wiki28/File-Wiki"
 
 
 def gen_chlog(repo, diff):
@@ -60,10 +60,10 @@ def updater():
 @Bot.on_message(filters.command("update") & filters.user(ADMINS))
 async def update_bot(_, message: Message):
     message.chat.id
-    msg = await message.reply_text("Checking updates...")
+    msg = await message.reply_text("Memeriksa pembaruan...")
     update_avail = updater()
     if update_avail:
-        await msg.edit("✅ Update finished !")
+        await msg.edit("Pembaruan selesai !")
         system("git pull -f && pip3 install --no-cache-dir -r requirements.txt")
         execle(sys.executable, sys.executable, "main.py", environ)
         return
@@ -76,10 +76,10 @@ async def update_bot(_, message: Message):
 @Bot.on_message(filters.command("restart") & filters.user(ADMINS))
 async def restart_bot(_, message: Message):
     try:
-        msg = await message.reply_text("`Restarting bot...`")
+        msg = await message.reply_text("`Mulai ulang bot...`")
         LOGGER(__name__).info("BOT SERVER RESTARTED !!")
     except BaseException as err:
         LOGGER(__name__).info(f"{err}")
         return
-    await msg.edit_text("✅ Bot has restarted !\n\n")
+    await msg.edit_text("Bot telah dimulai ulang !\n\n")
     os.system(f"kill -9 {os.getpid()} && bash start")
