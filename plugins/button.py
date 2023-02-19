@@ -50,7 +50,7 @@ def start_button(client):
         ]
         return buttons
 
-if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL2:
+if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL2 and not FORCE_SUB_GROUP:
         buttons = [
             [
                 InlineKeyboardButton(text="ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help"),
@@ -121,7 +121,7 @@ def fsub_button(client, message):
             pass
         return buttons
 
-    if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL2:
+    if FORCE_SUB_CHANNEL and FORCE_SUB_CHANNEL2 and not FORCE_SUB_GROUP:
         buttons = [
             [
                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink),
