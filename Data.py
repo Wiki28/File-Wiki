@@ -45,3 +45,4 @@ class Data:
 <b>Tentang Bot ini:
 
 @{} adalah Bot Telegram untuk menyimpan Postingan atau File yang dapat Diakses melalui Link Khusus.
+"""
